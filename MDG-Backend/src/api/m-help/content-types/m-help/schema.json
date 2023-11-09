@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_helps",
+  "info": {
+    "singularName": "m-help",
+    "pluralName": "m-helps",
+    "displayName": "MHelpTopic",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "topic": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "m_organisation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-organisation.m-organisation",
+      "inversedBy": "m_helps"
+    },
+    "m_application": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-application.m-application",
+      "inversedBy": "m_help_topics"
+    },
+    "m_help_faqs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-help-faq.m-help-faq",
+      "mappedBy": "m_help_topic"
+    }
+  }
+}

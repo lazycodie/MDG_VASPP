@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_user_app_permissions",
+  "info": {
+    "singularName": "m-user-app-permission",
+    "pluralName": "m-user-app-permissions",
+    "displayName": "MUserAppPermission",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "read": {
+      "type": "boolean",
+      "default": false
+    },
+    "create": {
+      "type": "boolean",
+      "default": false
+    },
+    "update": {
+      "type": "boolean",
+      "default": false
+    },
+    "delete": {
+      "type": "boolean",
+      "default": false
+    },
+    "m_application": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-application.m-application"
+    }
+  }
+}

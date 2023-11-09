@@ -1,0 +1,95 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_vendors",
+  "info": {
+    "singularName": "m-vendor",
+    "pluralName": "m-vendors",
+    "displayName": "MVendor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "vendID": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 8
+    },
+    "vendorName": {
+      "type": "string"
+    },
+    "cvTypeField": {
+      "type": "enumeration",
+      "enum": [
+        "Vendor Direct",
+        "Vendor Indirect",
+        "Supplier",
+        "Third Party",
+        "Agency",
+        "Consultancy",
+        "IT Service Provider"
+      ]
+    },
+    "about": {
+      "type": "string"
+    },
+    "vendorContact": {
+      "type": "string"
+    },
+    "vendorEmail": {
+      "type": "email"
+    },
+    "vendorAddress": {
+      "type": "text"
+    },
+    "vendorCity": {
+      "type": "string"
+    },
+    "vendorCountry": {
+      "type": "string"
+    },
+    "region1": {
+      "type": "string"
+    },
+    "region2": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "integer"
+    },
+    "contactPerson": {
+      "type": "string"
+    },
+    "contactEmail": {
+      "type": "string"
+    },
+    "contactPhone": {
+      "type": "string"
+    },
+    "isArchived": {
+      "type": "boolean",
+      "default": false
+    },
+    "m_projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::m-project.m-project",
+      "mappedBy": "m_vendors"
+    },
+    "m_csf": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-csf.m-csf",
+      "mappedBy": "m_vendor"
+    },
+    "m_deliverables": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-deliverable.m-deliverable",
+      "mappedBy": "m_vendor"
+    }
+  }
+}

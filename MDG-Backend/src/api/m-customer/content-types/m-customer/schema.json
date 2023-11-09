@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_customers",
+  "info": {
+    "singularName": "m-customer",
+    "pluralName": "m-customers",
+    "displayName": "MCustomer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "custID": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 8
+    },
+    "customerName": {
+      "type": "string"
+    },
+    "cvTypeField": {
+      "type": "enumeration",
+      "enum": [
+        "Customer Internal",
+        "Customer External",
+        "Supplier",
+        "Third Party",
+        "Agency",
+        "Consultancy",
+        "IT Service provider"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "email": {
+      "type": "email"
+    },
+    "contact": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "region1": {
+      "type": "string"
+    },
+    "region2": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "integer"
+    },
+    "contactPerson": {
+      "type": "string"
+    },
+    "contactEmail": {
+      "type": "email"
+    },
+    "contactPhone": {
+      "type": "string"
+    },
+    "isArchived": {
+      "type": "boolean"
+    },
+    "m_projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::m-project.m-project",
+      "mappedBy": "m_customers"
+    }
+  }
+}

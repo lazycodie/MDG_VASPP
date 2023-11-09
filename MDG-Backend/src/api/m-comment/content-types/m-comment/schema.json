@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_comments",
+  "info": {
+    "singularName": "m-comment",
+    "pluralName": "m-comments",
+    "displayName": "MComment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "comment": {
+      "type": "string",
+      "required": true
+    },
+    "m_program": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-program.m-program",
+      "inversedBy": "m_comments"
+    },
+    "m_project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-project.m-project",
+      "inversedBy": "m_comments"
+    },
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    }
+  }
+}

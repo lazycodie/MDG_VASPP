@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_assignments",
+  "info": {
+    "singularName": "m-assignment",
+    "pluralName": "m-assignments",
+    "displayName": "MAssignment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

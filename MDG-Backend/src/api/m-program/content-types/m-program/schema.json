@@ -1,0 +1,115 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_programs",
+  "info": {
+    "singularName": "m-program",
+    "pluralName": "m-programs",
+    "displayName": "MProgram"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "programID": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 8
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "In-Progress",
+        "Completed",
+        "Archived"
+      ],
+      "default": "New",
+      "required": true
+    },
+    "m_organisation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-organisation.m-organisation",
+      "inversedBy": "m_program"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "DGI Foundation",
+        "Trans Program",
+        "IC Data Initiative",
+        "Reg Tech Initiative",
+        "Data Quality",
+        "Generic"
+      ],
+      "required": true
+    },
+    "countryOrCity": {
+      "type": "string",
+      "required": true
+    },
+    "effort": {
+      "type": "decimal"
+    },
+    "progress": {
+      "type": "decimal"
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "Critical",
+        "Non critical",
+        "Relevant",
+        "Less Relevant"
+      ],
+      "required": true
+    },
+    "m_projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-project.m-project",
+      "mappedBy": "m_program"
+    },
+    "m_deliverables": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-deliverable.m-deliverable",
+      "mappedBy": "m_program"
+    },
+    "m_milestones": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-milestone.m-milestone",
+      "mappedBy": "m_program"
+    },
+    "m_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-comment.m-comment",
+      "mappedBy": "m_program"
+    },
+    "mracis": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-raci.m-raci",
+      "mappedBy": "m_program"
+    }
+  }
+}

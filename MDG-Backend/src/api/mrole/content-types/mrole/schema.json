@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mroles",
+  "info": {
+    "singularName": "mrole",
+    "pluralName": "mroles",
+    "displayName": "Mrole",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "roleID": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "minLength": 8
+    },
+    "roleName": {
+      "type": "string",
+      "required": true
+    },
+    "m_organisation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-organisation.m-organisation",
+      "inversedBy": "mroles"
+    },
+    "description": {
+      "type": "text"
+    },
+    "roleType": {
+      "type": "enumeration",
+      "enum": [
+        "Solution Role",
+        "Functional role"
+      ],
+      "required": true
+    },
+    "m_project_team": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-project-team.m-project-team",
+      "mappedBy": "mrole"
+    }
+  }
+}

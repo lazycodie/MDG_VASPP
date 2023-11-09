@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_racis",
+  "info": {
+    "singularName": "m-raci",
+    "pluralName": "m-racis",
+    "displayName": "MRACI",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "Draft",
+        "Submitted",
+        "Approved",
+        "Rejected"
+      ]
+    },
+    "m_program": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-program.m-program",
+      "inversedBy": "mracis"
+    },
+    "m_project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-project.m-project",
+      "inversedBy": "mraci"
+    },
+    "m_csf": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-csf.m-csf",
+      "inversedBy": "mraci"
+    },
+    "m_assignment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-assignment.m-assignment"
+    },
+    "accountable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "consulted": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "informed": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "responsible": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "CSFR",
+        "PPR"
+      ]
+    }
+  }
+}

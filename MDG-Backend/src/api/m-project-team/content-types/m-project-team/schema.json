@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_project_teams",
+  "info": {
+    "singularName": "m-project-team",
+    "pluralName": "m-project-teams",
+    "displayName": "MProjectTeam",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "m_projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::m-project.m-project",
+      "inversedBy": "m_project_teams"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "mrole": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mrole.mrole",
+      "inversedBy": "m_project_team"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_applications",
+  "info": {
+    "singularName": "m-application",
+    "pluralName": "m-applications",
+    "displayName": "MApplication",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "applicationID": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 8
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "url": {
+      "type": "string"
+    },
+    "m_organisations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::m-organisation.m-organisation",
+      "mappedBy": "m_applications"
+    },
+    "isArchived": {
+      "type": "boolean"
+    },
+    "m_help_topics": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-help.m-help",
+      "mappedBy": "m_application"
+    }
+  }
+}

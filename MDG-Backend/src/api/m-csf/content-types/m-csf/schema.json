@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_csfs",
+  "info": {
+    "singularName": "m-csf",
+    "pluralName": "m-csfs",
+    "displayName": "MCsf",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "csfID": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 8
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    },
+    "deadLineDate": {
+      "type": "date",
+      "required": true
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "m_csf"
+    },
+    "m_vendor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-vendor.m-vendor",
+      "inversedBy": "m_csf"
+    },
+    "effort": {
+      "type": "decimal"
+    },
+    "progress": {
+      "type": "decimal"
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "Critical",
+        "Non Critical",
+        "Relevant",
+        "Less Relevant"
+      ],
+      "required": true
+    },
+    "m_deliverable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-deliverable.m-deliverable",
+      "mappedBy": "m_csf"
+    },
+    "m_milestone": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-milestone.m-milestone",
+      "inversedBy": "m_csfs"
+    },
+    "mraci": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-raci.m-raci",
+      "mappedBy": "m_csf"
+    }
+  }
+}

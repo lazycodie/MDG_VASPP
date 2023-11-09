@@ -1,0 +1,113 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_projects",
+  "info": {
+    "singularName": "m-project",
+    "pluralName": "m-projects",
+    "displayName": "MProject",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "projectID": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 14
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    },
+    "effort": {
+      "type": "decimal"
+    },
+    "m_customers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::m-customer.m-customer",
+      "inversedBy": "m_projects"
+    },
+    "m_vendors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::m-vendor.m-vendor",
+      "inversedBy": "m_projects"
+    },
+    "progress": {
+      "type": "decimal"
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "Critical",
+        "Not Critical",
+        "Relevant",
+        "Less Relevant"
+      ],
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "In-Progress",
+        "Archived",
+        "Cancelled",
+        "Completed"
+      ],
+      "default": "New",
+      "required": true
+    },
+    "m_program": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-program.m-program",
+      "inversedBy": "m_projects"
+    },
+    "m_project_teams": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::m-project-team.m-project-team",
+      "mappedBy": "m_projects"
+    },
+    "m_deliverables": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-deliverable.m-deliverable",
+      "mappedBy": "m_project"
+    },
+    "m_milestones": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-milestone.m-milestone",
+      "mappedBy": "m_project"
+    },
+    "m_comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::m-comment.m-comment",
+      "mappedBy": "m_project"
+    },
+    "mraci": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-raci.m-raci",
+      "mappedBy": "m_project"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_glossaries",
+  "info": {
+    "singularName": "m-glossary",
+    "pluralName": "m-glossaries",
+    "displayName": "MGlossary",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "terminology": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "text"
+    },
+    "businessDef": {
+      "type": "text"
+    },
+    "techDef": {
+      "type": "text"
+    },
+    "financeDef": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "Approved"
+      ],
+      "default": "New"
+    },
+    "char": {
+      "type": "string",
+      "default": "275"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "m_organisation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::m-organisation.m-organisation",
+      "inversedBy": "m_glossaries"
+    }
+  }
+}
