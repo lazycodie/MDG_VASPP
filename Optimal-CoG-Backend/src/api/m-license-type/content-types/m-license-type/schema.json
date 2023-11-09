@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_license_types",
+  "info": {
+    "singularName": "m-license-type",
+    "pluralName": "m-license-types",
+    "displayName": "MLicenseType"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "licenseID": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "minLength": 8
+    },
+    "licenseType": {
+      "type": "string"
+    }
+  }
+}

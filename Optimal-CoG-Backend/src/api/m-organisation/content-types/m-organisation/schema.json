@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "m_organisations",
+  "info": {
+    "singularName": "m-organisation",
+    "pluralName": "m-organisations",
+    "displayName": "MOrganisation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orgID": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "minLength": 8
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "allowedNoOfUsers": {
+      "type": "integer"
+    },
+    "m_applications": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::m-application.m-application",
+      "inversedBy": "m_organisations"
+    },
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    },
+    "m_license_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::m-license-type.m-license-type"
+    },
+    "validFrom": {
+      "type": "date"
+    },
+    "validTo": {
+      "type": "date"
+    },
+    "mroles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mrole.mrole",
+      "mappedBy": "m_organisation"
+    }
+  }
+}
